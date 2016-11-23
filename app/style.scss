@@ -110,6 +110,27 @@ body{
 	}
 
 }
+.work{
+	padding: 10px;
+	.work-box{
+	    float: left;
+	    width: 300px;
+	    position: relative;
+	    margin: 10px;
+	    border: 4px solid;
+		img{max-width: 100%;}
+		.overlay{
+			background-color: #207eab;
+		    position: absolute;
+		    bottom: 0;
+		    width: 100%;
+		    padding: 9px 4px 4px;
+		    color: white;
+		    box-sizing: border-box;
+		    left: 0;
+		}
+	}
+}
 .view-port{
 	section{
 		min-height: 500px;

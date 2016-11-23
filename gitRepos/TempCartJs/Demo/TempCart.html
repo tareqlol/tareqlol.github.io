@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple Catalog JS</title>
+	<link rel="stylesheet" type="text/css" href="style/style.css">
+	<link rel="stylesheet" type="text/css" href="style/font-awesome.min.css">
+	<script type="text/javascript" src="scripts/mustache.js"></script>
+	<script type="text/javascript" src="scripts/TempCart.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+</head>
+<body onload="TempCart.init(tempCartOptions)">
+	<header>
+		<section>
+			<h2>Temp Cart Javascript </h2>
+			<p>Welcome to a dummy store of TempCartJs</p>
+		</section>
+	</header>
+	<section>
+		<div class="proListing"></div>
+	</section>
+	<footer>
+		<div class="cart"></div>
+
+	<div class="notification">
+		<span class="success"></span>
+		<p>Welcome</p>
+	</div>
+<script id="listingTemp" type="text/template">
+{{#products}}
+<div class="product" id="{{id}}">
+	{{#image}}
+		<div class="ProImg">
+			<i class="fa fa-spinner loadingSpin fa-spin"></i>
+			<img src="{{image}}" alt="{{name}}" title="{{name}}" onload="hideLoader(this)"/>
+		</div>
+	{{/image}}
+	{{^image}}
+		<div class="ProImg">
+			<i class="fa fa-spinner loadingSpin fa-spin"></i>
+			<img src="http://placehold.it/150x150" alt="{{name}}" title="{{name}}" onload="hideLoader(this)"/>
+		</div>
+	{{/image}}
+	<div class="details">
+		<div class="productName">
+			{{name}}
+		</div>
+		<div class="productPrice">
+			{{currency}}{{price}}
+		</div>
+	</div>
+	<div class="options">
+	<p class="description">{{description}}</p>
+		<button onclick="TempCart.updateCart({{id}},'add')"><i class="fa fa-shopping-cart fa-2x"></i></button>
+	</div>
+</div>
+{{/products}}
+</script>
+<script id="cartTemp" type="text/template">
+	<p class="title"><i class="fa fa-truck fa-1x"></i>Cart</p>
+	<div class="cartDropDown">
+		{{#products}}
+		<div class="product">
+			<div class="ProImg">
+				{{#image}}
+					<div class="img"><img src="{{image}}" alt="{{name}}" title="{{name}}"/></div>
+				{{/image}}
+				{{^image}}
+					<div class="ProImg">
+						<div class="img"><img src="http://placehold.it/150x150" alt="{{name}}" title="{{name}}"/></div>
+					</div>
+				{{/image}}
+			</div>
+			<div class="productName">
+				{{name}}
+			</div>
+			<div class="productPrice">
+				{{currency}}{{price}} X {{qty}}
+			</div>
+			<div class="options">
+				<div class="remove">
+					<button class="removeBtn" onclick="TempCart.updateCart({{id}},'remove')">X</button>
+				</div>
+			</div>
+		</div>
+		{{/products}}
+		<p class="cartPrice">Total Price : {{currency}}{{products.total}}</p>
+	</div>
+</script>
+
+
+
+<script type="text/javascript">
+var tempCartOptions = {
+	listingHtmlTemplate: document.getElementById('listingTemp').innerHTML, // Mustache script template , You can use jQuery also
+	appendListingTo: document.getElementsByClassName('proListing')[0], //target html object , You can use jQuery also
+	cartHtmlTemplate: document.getElementById('cartTemp').innerHTML, // Mustache script template, You can use jQuery also
+	cartHtmlObject: document.getElementsByClassName('cart')[0],
+	currency:'$',
+	saveCart:true,
+	products: [
+		{"name":"White T-shirt","id":1,"price":10,"image":"style/1.png","description":"Plain White T-Shirt comes with four colors"},
+		{"name":"Blue T-shirt","id":2,"price":20,"image":"style/2.png","description":"Plain Blue T-Shirt comes with four colors "},
+		{"name":"Green T-shirt","id":3,"price":36,"image":"style/3.png","description":"Plain Green T-Shirt comes with four colors "},
+		{"name":"Purple T-shirt","id":4,"price":19,"image":"style/4.png","description":"Plain Purple T-Shirt comes with four colors "},
+		{"name":"Pinkish Red T-shirt","id":5,"price":40,"image":"style/5.png","description":"Plain Red T-Shirt comes with four colors "}
+	],
+	//Fall Backs
+	renderProductsCallBack:function() {
+		console.log('Products has been renderd');
+		document.getElementsByClassName('notification')[0].style.bottom = '-86px';
+	},
+	addProductCallBack:function(){
+		clearTimeout(slide);
+		document.getElementsByClassName('cart')[0].style.display = "block"; // show the cart
+		var notification = document.getElementsByClassName('notification')[0];
+		notification.querySelector('p').innerHTML = "Product has been Added to the cart";
+		notification.style.bottom = "0";
+		var slide = setTimeout(function(){
+			notification.style.bottom = '-86px';
+		},1000);
+
+	},
+	removeProductCallBack:function(){
+		var notification = document.getElementsByClassName('notification')[0];
+		notification.querySelector('p').innerHTML = "Product has removed from the cart";
+			notification.style.bottom = "0";
+		var slide = setTimeout(function(){
+			notification.style.bottom = '-86px';
+		},1000);
+	}
+
+}
+	Mustache.parse(tempCartOptions.cartHtmlTemplate);   // optional, speeds up future uses
+	var rendered = Mustache.render(tempCartOptions.cartHtmlTemplate, {});
+	tempCartOptions.cartHtmlObject.innerHTML = rendered;
+function hideLoader(imgNode){
+	var parentNode = imgNode.parentNode;
+	parentNode.getElementsByClassName('loadingSpin')[0].style.display = "none";
+}
+</script>
+
+</footer>
+</body>
+</html>

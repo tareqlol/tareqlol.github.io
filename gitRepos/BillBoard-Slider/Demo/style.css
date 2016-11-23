@@ -1,0 +1,159 @@
+﻿body{
+    backface-visibility: hidden;
+    background: url('bg.png');
+    text-align: center;
+}
+body > button{
+    background: #fff;
+    border: 2px solid #ccc;
+    color: #333;
+    cursor: pointer;
+    font-family: Tahoma;
+    font-size: 14px;
+    padding: 5px 21px;
+}
+.showMeMagic{
+  -webkit-animation: Dimmer 3s 10s; /* Safari 4+ */
+  -moz-animation: Dimmer 3s 10s; /* Fx 5+ */
+  -o-animation: Dimmer 3s 10s; /* Opera 12+ */
+  animation: Dimmer 3s 10s; /* IE 10+, Fx 29+ */
+}
+.showMeMagic.active{
+      -webkit-animation:none; /* Safari 4+ */
+  -moz-animation:none; /* Fx 5+ */
+  -o-animation:none; /* Opera 12+ */
+  animation:none; /* IE 10+, Fx 29+ */
+}
+
+@-webkit-keyframes Dimmer {
+  0%   { background: #fff }
+  100% { background: #333 ;color: #fff}
+}
+@-moz-keyframes Dimmer {
+  0%   { background: #fff }
+  100% { background: #333;color: #fff }
+}
+@-o-keyframes Dimmer {
+  0%   { background: #fff }
+  100% { background: #333 ;color: #fff }
+}
+@keyframes Dimmer {
+  0%   { background: #fff }
+  100% { background: #333 ;color: #fff }
+}
+
+.billContainer > ul.magic1{
+    transform: rotateX(70deg) rotateY(40deg);
+    -o-transform: rotateX(70deg) rotateY(40deg);
+    -moz-transform: rotateX(70deg) rotateY(40deg);
+    -webkit-transform: rotateX(70deg) rotateY(40deg);
+    margin-right: 27px;
+    border-right: 1px solid #ccc;
+}
+.billContainer > ul.magic2{
+    transform: rotateX(110deg) rotateY(40deg);
+    -o-transform: rotateX(110deg) rotateY(40deg);
+    -moz-transform: rotateX(110deg) rotateY(40deg);
+    -webkit-transform: rotateX(110deg) rotateY(40deg);
+    margin-right: 27px;
+    border-right: 1px solid #ccc;
+}
+/*BillBoard Styles*/
+.billboard-rotater {
+    margin: 10px auto;
+    position: relative;
+    width: 900px;
+}
+
+.billboard-rotater ul {
+    list-style-type: none;
+    position: relative;
+}
+
+.billboard-rotater.cube ul.cubeContainer {
+    -moz-transform-style: preserve-3d;
+    -ms-perspective: 300000px;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    -webkit-perspective: 300000;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.billboard-rotater.flat ul.cubeContainer {
+    -moz-transform-style: preserve-3d;
+    -ms-perspective: 1000;
+    -ms-transform-style: 1000;
+    -o-transform-style: preserve-3d;
+    -webkit-perspective: 1000;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.billContainer > ul {
+    display: inline-block;
+    float: left;
+}
+
+.billboard-rotater li img {
+}
+
+.billboard-rotater .billContainer {
+    box-shadow: 1px 1px 1px #BBBABA , -1px -1px 1px #BBBABA;
+    height: 600px;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    width: 900px;
+}
+
+.cubeContainer {
+    float: left;
+    height: 300px;
+    padding: 0;
+}
+
+.cubeContainer li {
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    height: 600px;
+    left: 0;
+    margin: 0;
+    position: absolute;
+    top: 0;
+}
+
+
+
+.billboard-rotater[active="2"].cube .cubeContainer {
+    -moz-transform: rotateY(-90deg);
+    -o-transform: rotateY(-90deg);
+    -webkit-transform: rotateY(-90deg);
+    transform: rotateY(-90deg);
+}
+
+.billboard-rotater[active="3"].cube .cubeContainer {
+    -moz-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+
+.billboard-rotater[active="4"].cube .cubeContainer {
+    -moz-transform: rotateY(-270deg);
+    -o-transform: rotateY(-270deg);
+    -webkit-transform: rotateY(-270deg);
+    transform: rotateY(-270deg);
+}
+
+
+.billboard-rotater[active="2"].flat .cubeContainer {
+    -moz-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}

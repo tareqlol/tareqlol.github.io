@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>BillBoard Slider</title>
+    <script type="text/javascript" src="jQuery.js"></script>
+    <link href="style.css" rel="Stylesheet" />
+</head>
+<body>
+    <button id="runCube">
+        Run cube</button>
+    <button id="runFlat">
+        Run flat
+    </button>
+    <button class="bill-nav" id="next">
+        Next</button>
+    <button class="bill-nav" id="prev">
+        Prev</button>
+         <button class="showMeMagic" id="prev">
+        Show Me the Magic</button>
+    <div class="billboard-rotater">
+        <ul class="imgs">
+            <li>
+                <img src="1.jpg" /></li>
+            <li>
+                <img src="2.jpg" /></li>
+            <li>
+                <img src="3.jpg" /></li>
+            <li>
+                <img src="4.jpg" /></li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        $('#runCube').on('click', function () {
+            $('.billboard-rotater').billboard({
+                colWidth: 30,
+                optimizeOutput: false,
+                transitionDelayMultiplier: .1,
+                dimensionalOutput:'cube'
+            });
+        });
+        $('#runFlat').on('click', function () {
+            $('.billboard-rotater').billboard({
+                colWidth: 50,
+                optimizeOutput: false,
+                transitionDelayMultiplier: .1,
+                dimensionalOutput: 'flat'
+            });
+        });
+        currentPos = 1;
+        $('.bill-nav').on('click', function () {
+            position = $(this).attr('id');
+            if (position == 'next') {
+                currentPos++;
+                if (currentPos == 5) {
+                    currentPos = 1;
+                }
+            } else {
+                currentPos--;
+                if (currentPos == 0) {
+                    currentPos = 4;
+
+                }
+            }
+            $('.billboard-rotater').attr('active', currentPos);
+        });
+         $('.showMeMagic').on('click', function () {
+         	if($(this).hasClass('active')){ return }else{ $(this).addClass('active')}
+	         	
+         	$('.billContainer > ul').addClass('magic1');
+         	setTimeout(function(){
+         	$('.billContainer > ul').addClass('magic2');
+         		setTimeout(function(){
+         		$('.billContainer > ul').removeClass('magic1').removeClass('magic2');
+         			$('.showMeMagic').removeClass('active');
+         		},10000);
+         	},7000)
+        });
+        (function () {
+            $.fn.billboard = function (options) {
+                var options = $.extend({
+                    colWidth: 30, // For Speed and optimizations ** set '100%' to make it as one cube.
+                    transitionSpeed: 1, // Accepts decimal numbers and int Numbers
+                    transitionDelayMultiplier: .1, // Delay between columns to show the BillBoard Effect , set to 0 to Disable it.
+                    optimizeOutput: true, // to Remove repating columns background , set to false if you want to show the columns
+                    dimensionalOutput: 'cube', // accepts string 'cube' or 'flat' ; flat will only show the first two images one for each of the flat columns
+                    billCallBack: function () { }// Call back function runs right after plugin's functionallty finishes
+
+                }, options);
+
+                var billboard = $(this),
+                billboardUl = billboard.find('ul'),
+                billboardLi = billboardUl.find('li'),
+                billboardLiCount = billboardLi.length,
+                billboardImgs = billboardLi.find('img'),
+                billboardImgWidth = billboardImgs[0].naturalWidth,
+                counter = 1;
+                options.colWidth == '100%' ? options.colWidth = billboardImgWidth : options.colWidth = options.colWidth;
+                var numberOfColumns = parseInt(billboardImgWidth / options.colWidth),
+                translateWidth = options.colWidth / 2;
+
+                if (!options.optimizeOutput) { 
+                    if (billboardImgWidth % options.colWidth) {
+                        numberOfColumns++;
+                    }
+                }
+                cubeContainerRepresentation = options.dimensionalOutput;
+                billboard.addClass(cubeContainerRepresentation);
+                billboard.attr('active', 1);
+                billboardUl.remove();
+                var containerHtml;
+                containerHtml = $('<ul>', {
+                    class: 'billContainer '
+                });
+                backgroundPositionX = billboardImgWidth;
+                for (i = 1; i <= numberOfColumns; i++) {
+                    var colHtml,
+                        cubeContainer,
+                        speed = options.transitionSpeed,
+                        delay = options.transitionDelayMultiplier;
+                    cubeContainer = $('<ul>', {
+                        class: "cubeContainer"
+                    }).css({
+                        'width': options.colWidth,
+                        'transition': 'all ' + speed + 's ' + i * delay + 's '
+                    });
+
+                    for (z = 0; z < billboardLiCount; z++) {
+                        cssProp = {
+                            width: options.colWidth,
+                            backgroundImage: 'url(' + billboardImgs[z].src + ')',
+                            backgroundPosition: backgroundPositionX + 'px 0'
+                        }
+                        if (cubeContainerRepresentation == 'cube') {
+                            if (z == 0) {//front Face
+                                cssProp['transform'] = 'translateZ(' + translateWidth + 'px)';
+                            }
+                            if (z == 1) {//right Face
+                                cssProp['transform'] = 'translateX(' + translateWidth + 'px) rotateY(90deg)';
+                            }
+                            if (z == 2) {//back Face
+                                cssProp['transform'] = 'translateZ(-' + translateWidth + 'px) rotateY(180deg)';
+                            }
+                            if (z == 3) {//back Face
+                                cssProp['transform'] = 'translateX(-' + translateWidth + 'px) rotateY(270deg)';
+                            }
+                        }
+                        else if (cubeContainerRepresentation == 'flat') {
+                            if (z == 0) {//front Face
+                                cssProp['transform'] = 'rotateY(0deg)';
+                            }
+                            if (z == 1) {//right Face
+                                cssProp['transform'] = 'rotateY(180deg) ';
+                            }
+                            if (z == 2) { break; }
+                        }
+                        colHtml = $('<li>', {
+                            class: 'col'
+                        }).css(cssProp).appendTo(cubeContainer);
+                    }
+                    cubeContainer.appendTo(containerHtml);
+                    backgroundPositionX = backgroundPositionX - options.colWidth;
+                    containerHtml.appendTo(billboard);
+                }
+                function billCallBack() {
+                    options.billCallBack.call(this);
+
+                }
+                billCallBack();
+            }
+          
+           
+        })(jQuery)
+    </script>
+</body>
+</html>
