@@ -1,0 +1,29 @@
+{
+  "name": "tareqlol.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tareqlol/tareqlol.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tareqlol/tareqlol.github.io/issues"
+  },
+  "homepage": "https://github.com/tareqlol/tareqlol.github.io#readme",
+  "devDependencies": {
+    "node-sass": "^3.13.0",
+    "sass-loader": "^4.0.2",
+    "webpack": "^1.13.3"
+  },
+  "dependencies": {
+    "css-loader": "^0.26.0",
+    "normalize.css": "^5.0.0",
+    "style-loader": "^0.13.1"
+  }
+}
