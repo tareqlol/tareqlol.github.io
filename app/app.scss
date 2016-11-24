@@ -1,0 +1,164 @@
+@import '_normalize';
+
+$base-font-size: 16; // Default
+
+@function em($pixels, $context: $base-font-size) {
+  @return #{$pixels/$context}em
+}
+
+*{
+	box-sizing:border-box;
+}
+p{
+	margin: 0;
+}
+body{
+	font-family: 'Open Sans', sans-serif;
+	font-size: em(16);
+	font-weight: 300;
+	line-height: 1.4;
+}
+section.intro,section.content{height: 100%;float: left;}
+section.intro{
+	background: #2a2e31;
+	color: #d4d5d6;
+	width: 28%;
+	padding: em(20) em(10);
+	.block{
+		margin-bottom: em(24);
+	}
+	.block-title{
+		font-size: em(18);
+		font-weight: 400;
+		line-height: 0.9;
+		padding-bottom: em(5);
+		margin-bottom: em(7);
+		margin-top: 0;
+		text-transform: uppercase;
+		border-bottom: em(1) solid #939598;
+		color: white;
+	}
+
+	.contact{
+		ul{
+			padding: 0;
+			margin: 0;
+			list-style:none;
+		}
+		a{
+			text-decoration: none;
+			color: inherit;
+			&:hover{
+				color: white;
+			}
+		}
+		i{
+			display: inline-block;
+			width: 20px;
+		}
+	}
+	.languages{
+		p{
+			margin-bottom: em(13);
+			small{
+				display: block;
+				line-height: 1;
+			}
+		}
+	}
+}
+
+
+section.content{
+	color: #2a2e31;
+	width: 72%;
+	padding: em(30) em(25);
+	header{
+		margin-bottom: em(30);
+		h1,h2{
+			font-weight: 400;
+			margin: 0;
+		}
+		h1{
+			font-size: em(56);
+			text-transform: uppercase;
+			line-height: 0.9;
+		}
+		h2{
+			font-size: em(32);
+			text-indent: em(3);
+		}
+		b{
+			font-weight: 800;
+		}
+	}
+	.block{
+		margin-bottom: em(25);
+		clear: both;
+	}
+	.main-block-title{
+		position: relative;
+		margin-bottom: em(20);
+		i{
+		    width: em(40);
+		    height: em(40);
+		    border: em(2) solid;
+		    border-radius: 100%;
+		    display: block;
+		    top: 0;
+		    left: 0;
+		    position: absolute;
+		    background: #fff;
+		}
+		p{
+			margin-left: em(45);
+			border-bottom: 1px solid #999b9e;
+			text-transform: uppercase;
+			font-weight: 400;
+			font-size: em(20);
+		}
+	}
+	.block-title{
+		margin-bottom: 0;
+		.lead{
+			float: left;
+			font-weight: 400;
+		}
+		span{
+			float: right;
+		}
+		+p{
+			white-space: pre-line;
+			color: #55585a;
+			padding-left: em(10);
+			clear: both;
+		}
+	}
+	.content{
+		margin-bottom: em(20);
+	}
+	.skill-tree span{
+		display: block;
+		float: left;
+		padding: 3px 5px;
+		background: #2a2e31;
+		color:white;
+	    position: relative;
+	    &:after,&:before{
+	        content: "";
+		    position: absolute;
+		    right: 5px;
+		    width: 4px;
+		    height: 23px;
+		    background: white;
+	    }
+		&:after{
+			top: -2px;
+			transform: rotateZ(-20deg);
+		}
+		&:before{
+	        bottom: -7px;
+    		transform: rotateZ(20deg);
+		}
+	}
+}

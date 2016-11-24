@@ -17,13 +17,8 @@
   },
   "homepage": "https://github.com/tareqlol/tareqlol.github.io#readme",
   "devDependencies": {
-    "node-sass": "^3.13.0",
-    "sass-loader": "^4.0.2",
-    "webpack": "^1.13.3"
-  },
-  "dependencies": {
-    "css-loader": "^0.26.0",
-    "normalize.css": "^5.0.0",
-    "style-loader": "^0.13.1"
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2",
+    "normalize.css": "^5.0.0"
   }
 }
