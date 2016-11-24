@@ -1,6 +1,3 @@
-* {
-	transition : 500ms all;
-}
 @-webkit-keyframes slide-up-and-show {
     from {
     	opacity : 0;
@@ -64,5 +61,19 @@ input:checked{
 	&#work ~ .content .view-port{
 		transform:translateY(-453px);
 	}
-
+}
+.intro,.view-port,.img-holder,.img-holder *{
+	-webkit-transition:height 500ms,
+	width 500ms,
+	transform 500ms,
+	-webkit-transform 500ms,
+	max-width 500ms,
+	font-size 500ms,
+	margin 500ms;transition:height 500ms,
+	width 500ms,
+	transform 500ms,
+	-webkit-transform 500ms,
+	max-width 500ms,
+	font-size 500ms,
+	margin 500ms
 }
