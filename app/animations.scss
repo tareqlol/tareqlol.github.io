@@ -30,7 +30,7 @@
 	opacity: 0;
 }
 input:checked{
-	&#about ~ .content,&#work ~ .content, &#contact ~ .content{
+	&#techs ~ .content,&#work ~ .content{
 		.intro{
 		    padding: 0;
 	        border-bottom-width: 4px;
@@ -58,14 +58,11 @@ input:checked{
 	    }
 		}
 	}
-	&#about ~ .content .view-port,&#home ~ .content .view-port{
+	&#techs ~ .content .view-port,&#home ~ .content .view-port{
 		transform:translateY(64px);
 	}
 	&#work ~ .content .view-port{
 		transform:translateY(-453px);
-	}
-	&#contact ~ .content .view-port{
-		transform:translateY(-972px);
 	}
 
 }
