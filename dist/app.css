@@ -414,15 +414,21 @@ body {
   font-weight: 300;
   line-height: 1.4; }
 
-section.intro, section.content {
-  height: 100%;
-  float: left; }
+.wrapper {
+  position: relative;
+  min-width: 1024px;
+  margin: 0 auto;
+  overflow: hidden; }
 
 section.intro {
   background: #2a2e31;
   color: #d4d5d6;
-  width: 28%;
-  padding: 1.25em 0.625em; }
+  width: 25%;
+  height: 100%;
+  padding: 1.25em 0.625em;
+  position: absolute;
+  left: 0;
+  top: 0; }
   section.intro .block {
     margin-bottom: 1.5em; }
   section.intro .block-title {
@@ -455,8 +461,10 @@ section.intro {
 
 section.content {
   color: #2a2e31;
-  width: 72%;
-  padding: 1.875em 1.5625em; }
+  width: 75%;
+  padding: 1.875em 1.5625em;
+  position: relative;
+  left: 25%; }
   section.content header {
     margin-bottom: 1.875em; }
     section.content header h1, section.content header h2 {
@@ -497,9 +505,11 @@ section.content {
     margin-bottom: 0; }
     section.content .block-title .lead {
       float: left;
-      font-weight: 400; }
+      font-weight: 400;
+      color: inherit; }
     section.content .block-title span {
-      float: right; }
+      float: right;
+      color: #7f8283; }
     section.content .block-title + p {
       white-space: pre-line;
       color: #55585a;
@@ -510,20 +520,21 @@ section.content {
   section.content .skill-tree span {
     display: block;
     float: left;
-    padding: 3px 5px;
+    padding: 0.3125em 0.9375em 0.3125em 0.625em;
     background: #2a2e31;
     color: white;
-    position: relative; }
+    position: relative;
+    margin-bottom: 0.25em; }
     section.content .skill-tree span:after, section.content .skill-tree span:before {
       content: "";
       position: absolute;
-      right: 5px;
-      width: 4px;
-      height: 23px;
+      right: -3px;
+      width: 9px;
+      height: 21px;
       background: white; }
     section.content .skill-tree span:after {
       top: -2px;
       transform: rotateZ(-20deg); }
     section.content .skill-tree span:before {
-      bottom: -7px;
+      bottom: -2px;
       transform: rotateZ(20deg); }

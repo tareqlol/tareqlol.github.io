@@ -18,12 +18,21 @@ body{
 	font-weight: 300;
 	line-height: 1.4;
 }
-section.intro,section.content{height: 100%;float: left;}
+.wrapper{
+	position: relative;
+	min-width: 1024px;
+	margin: 0 auto;
+	overflow: hidden;
+}
 section.intro{
 	background: #2a2e31;
 	color: #d4d5d6;
-	width: 28%;
+	width: 25%;
+	height: 100%;
 	padding: em(20) em(10);
+	position: absolute;
+	left: 0;
+	top: 0;
 	.block{
 		margin-bottom: em(24);
 	}
@@ -71,8 +80,10 @@ section.intro{
 
 section.content{
 	color: #2a2e31;
-	width: 72%;
+	width: 75%;
 	padding: em(30) em(25);
+	position: relative;
+	left: 25%;
 	header{
 		margin-bottom: em(30);
 		h1,h2{
@@ -123,9 +134,11 @@ section.content{
 		.lead{
 			float: left;
 			font-weight: 400;
+			color:inherit;
 		}
 		span{
 			float: right;
+			color: #7f8283;
 		}
 		+p{
 			white-space: pre-line;
@@ -140,16 +153,17 @@ section.content{
 	.skill-tree span{
 		display: block;
 		float: left;
-		padding: 3px 5px;
+		padding: em(5) em(15) em(5) em(10);
 		background: #2a2e31;
 		color:white;
 	    position: relative;
+	    margin-bottom: em(4);
 	    &:after,&:before{
-	        content: "";
+        	content: "";
 		    position: absolute;
-		    right: 5px;
-		    width: 4px;
-		    height: 23px;
+		    right: -3px;
+		    width: 9px;
+		    height: 21px;
 		    background: white;
 	    }
 		&:after{
@@ -157,7 +171,7 @@ section.content{
 			transform: rotateZ(-20deg);
 		}
 		&:before{
-	        bottom: -7px;
+	        bottom: -2px;
     		transform: rotateZ(20deg);
 		}
 	}
