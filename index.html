@@ -17,7 +17,8 @@
 		<section class="wrapper">
 			<section class="intro">
 				<div class="block avatar">
-					Avatar Goes Here
+					<div class="head"></div>
+					<div class="glasses"><div class="eyes animate"></div></div>
 				</div>
 				<div class="block intro">
 					<h4 class="block-title">About Me</h4>
@@ -179,5 +180,15 @@
 				</div>
 			</section>
 		</section>
+		<script>
+			(function(){
+				window.setInterval(function animate() {
+					eyes = document.getElementsByClassName('eyes')[0];
+					eyes.classList.remove('animate');
+					eyes.classList.add('animate');
+				},60000)	
+			})()
+			
+		</script>
 	</body>
 </html>

@@ -402,6 +402,28 @@ template {
 [hidden] {
   display: none; }
 
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes eye-blink {
+  0% {
+    opacity: 0; }
+  25% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+/* Standard syntax */
+@keyframes eye-blink {
+  0% {
+    opacity: 0; }
+  25% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
 * {
   box-sizing: border-box; }
 
@@ -441,6 +463,41 @@ section.intro {
     text-transform: uppercase;
     border-bottom: 0.0625em solid #939598;
     color: white; }
+  section.intro .avatar {
+    width: 11.875em;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative; }
+    section.intro .avatar .head, section.intro .avatar .glasses {
+      width: 100%;
+      background-size: contain;
+      background-repeat: no-repeat; }
+    section.intro .avatar .head {
+      background-image: url(../img/head.png);
+      width: 100%;
+      height: 180px; }
+    section.intro .avatar .glasses {
+      background-image: url(../img/glasses.png);
+      height: 48px;
+      position: absolute;
+      top: 100px;
+      background-position: center; }
+    section.intro .avatar .eyes.animate:before, section.intro .avatar .eyes.animate:after {
+      animation: eye-blink, eye-blink, eye-blink, eye-blink, eye-blink, eye-blink;
+      animation-delay: 0s, 10s, 20s, 30s, 40s, 50s, 60s;
+      animation-duration: 100ms; }
+    section.intro .avatar .eyes:before, section.intro .avatar .eyes:after {
+      position: absolute;
+      top: 12px;
+      content: "";
+      border-radius: 100%;
+      width: 25px;
+      height: 25px;
+      background-color: #959798; }
+    section.intro .avatar .eyes:before {
+      left: 40px; }
+    section.intro .avatar .eyes:after {
+      right: 40px; }
   section.intro .contact ul {
     padding: 0;
     margin: 0;
