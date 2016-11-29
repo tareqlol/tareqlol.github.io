@@ -30,7 +30,7 @@
 					<h4 class="block-title">Contact Me</h4>
 					<ul>
 						<li>
-							<i class="icon icon-mail"></i>
+							<i class="icon icon-email"></i>
 							<a href="mailto:tareqhassan54@gmail.com">tareqhassan54@gmail.com</a>
 						</li>
 						<li>
@@ -43,14 +43,14 @@
 						</li>
 						<li>
 							<i class="icon icon-linkedin"></i>
-							Tareq Hassan
+							<a target="_blank" href="https://www.linkedin.com/in/tareqhassan90">Tareq Hassan</a>
 						</li>
 						<li>
 							<i class="icon icon-location"></i>
 							Amman, Jordan
 						</li>
 						<li>
-							<i class="icon icon-status"></i>
+							<i class="icon icon-heart"></i>
 							Married
 						</li>
 					</ul>	
@@ -68,23 +68,28 @@
 							Gaming
 						</li>
 						<li>
-							<i class="icon icon-note"></i>
+							<i class="icon icon-music"></i>
 							Music
 						</li>
 						<li>
-							<i class="icon icon-plane"></i>
+							<i class="icon icon-travel"></i>
 							Travling
 						</li>
 						<li>
-							<i class="icon icon-swiming"></i>
+							<i class="icon icon-swimming"></i>
 							Swimming
 						</li>
 						<li>
-							<i class="icon icon-knife"></i>
+							<i class="icon icon-cooking"></i>
 							Cooking
 						</li>
 					</ul>	
 				</div>
+				<a target="_blank" href="https://www.behance.net/samar-bakri" class="designedby">
+					<span>Designed with </span>
+					<i class="icon icon-heart-filled"></i>
+					<span> by my lovely wife</span>
+				</a>
 			</section>
 			<section class="content">
 				<header>
@@ -93,7 +98,7 @@
 				</header>
 				<div class="block">
 					<div class="main-block-title">
-						<i class="icon icon-bag"></i>
+						<i class="icon icon-experience"></i>
 						<p>Experience</p>
 					</div>
 					<div class="content">
@@ -102,14 +107,14 @@
 							<span>Aug 2015 - Present</span>
 						</header>
 						<p>- Leading a group of 5 People.
-							- Maintaining Souq.com Frontend Application.
-							- Developing a cross-platform (SCSS) framework built on top of Zurb Foundation.
-							- Developing ECMAScript 6 Class Based, design patterned JavaScript modules along side with  functional programming Libraries such as UnderscoreJS.
+							- Maintaining <strong>Souq.com</strong> Frontend Application.
+							- Developing a cross-platform <strong>(SCSS)</strong> framework built on top of Zurb Foundation.
+							- Developing <strong>ECMAScript 6</strong> Class Based, design patterned <strong>JavaScript</strong> modules along side with functional programming Libraries such as <strong>UnderscoreJS</strong> and <strong>Lodash</strong>.
 							- Applying ECMAScript 6 new features in the code. 
-							- Writing Automated Scripts using Grunt & Gulp for Development and Production environment .
-							- Doing JS Profiling to maintain a high speed low profile state for the site.
-							- Enriching the UX of Souq.com Frontend Application.
-							- Stack of technologies : Foundation SCSS, RequireJS ECMAScript 6, BabelJS, Foundation 6, Grunt & Gulp.</p>
+							- Writing Automated Scripts using <strong>Grunt</strong> & <strong>Gulp</strong> for Development and Production environment .
+							- Doing <strong>JS Profiling</strong> to maintain a high speed low profile state for the site.
+							- Enriching the UX of <strong>Souq.com</strong> Frontend Application.
+							- Stack of technologies : <strong>Foundation SCSS, RequireJS ECMAScript 6, BabelJS, Foundation 6, Grunt & Gulp</strong>.</p>
 
 					</div>
 					<div class="content">
@@ -135,8 +140,8 @@
 							<span class="lead">Magento Front-End Developer at ShopGo | </span> Jordan
 							<span>October 2012 - May 2014 (1 year 8 months)</span>
 						</header>
-						<p>- Developing High end Magento Themes PSD Slicing Using CSS and HTML , in Addition to Animation using CSS3.
-						- Developing Basic Magento Extension Using Magento Zend/PHP, and jQuery/Javascript.
+						<p>- Developing High end Magento Themes PSD Slicing Using <strong>CSS</strong> and HTML , in Addition to Animation using <strong>CSS3</strong>.
+						- Developing Basic Magento Extension Using <strong>Magento Zend/PHP</strong>, and <strong>jQuery/Javascript</strong>.
 						- Took the lead of any Customization Clients.
 						- Maintain Themes on Monthly basis.
 						- Maintain Cross-compatibly for all themes.
@@ -145,7 +150,7 @@
 				</div>
 				<div class="block">
 					<div class="main-block-title">
-						<i class="icon icon-hat"></i>
+						<i class="icon icon-education"></i>
 						<p>Education</p>
 					</div>
 					<div class="content">
@@ -158,7 +163,7 @@
 				</div>
 				<div class="block">
 					<div class="main-block-title">
-						<i class="icon icon-cup"></i>
+						<i class="icon icon-certifications"></i>
 						<p>Certifications</p>
 					</div>
 					<div class="content">
@@ -171,7 +176,7 @@
 				</div>
 				<div class="block">
 					<div class="main-block-title">
-						<i class="icon icon-gears"></i>
+						<i class="icon icon-skills"></i>
 						<p>Skills</p>
 					</div>
 					<div class="skill-tree">
@@ -185,8 +190,10 @@
 				window.setInterval(function animate() {
 					eyes = document.getElementsByClassName('eyes')[0];
 					eyes.classList.remove('animate');
-					eyes.classList.add('animate');
-				},60000)	
+					window.setTimeout(function addAnimate(){
+						eyes.classList.add('animate');
+					}.bind(this),100);
+				},80000)	
 			})()
 			
 		</script>

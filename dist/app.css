@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Change the default font family in all browsers (opinionated).
@@ -424,6 +425,107 @@ template {
   100% {
     opacity: 1; } }
 
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes eye-move-to-content {
+  0%, 20%, 40%, 60%, 80% {
+    transform: translateX(10px) translateY(3px); }
+  100% {
+    transform: none; } }
+
+/* Standard syntax */
+@keyframes eye-move-to-content {
+  0%, 20%, 40%, 60%, 80% {
+    transform: translateX(10px) translateY(3px); }
+  100% {
+    transform: none; } }
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes eye-move-to-name {
+  0%, 20%, 40%, 60%, 80% {
+    transform: translateX(12px) translateY(-3px); }
+  100% {
+    transform: none; } }
+
+/* Standard syntax */
+@keyframes eye-move-to-name {
+  0%, 20%, 40%, 60%, 80% {
+    transform: translateX(12px) translateY(-3px); }
+  100% {
+    transform: none; } }
+
+@font-face {
+  font-family: 'tareqhassan';
+  src: url("../font/fonts/tareqhassan.ttf?akgr3a") format("truetype"), url("../font/fonts/tareqhassan.woff?akgr3a") format("woff"), url("../font/fonts/tareqhassan.svg?akgr3a#tareqhassan") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'tareqhassan' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-gamepad:before {
+  content: ""; }
+
+.icon-music:before {
+  content: ""; }
+
+.icon-travel:before {
+  content: ""; }
+
+.icon-swimming:before {
+  content: ""; }
+
+.icon-cooking:before {
+  content: ""; }
+
+.icon-heart:before {
+  content: ""; }
+
+.icon-location:before {
+  content: ""; }
+
+.icon-linkedin:before {
+  content: ""; }
+
+.icon-skype:before {
+  content: ""; }
+
+.icon-mobile:before {
+  content: ""; }
+
+.icon-email:before {
+  content: ""; }
+
+.icon-skills:before {
+  content: ""; }
+
+.icon-certifications:before {
+  content: ""; }
+
+.icon-education:before {
+  content: ""; }
+
+.icon-experience:before {
+  content: ""; }
+
+.icon-heart-filled:before {
+  content: ""; }
+
+.icon-pdf:before {
+  content: ""; }
+
+.icon-seperator:before {
+  content: ""; }
+
 * {
   box-sizing: border-box; }
 
@@ -445,9 +547,9 @@ body {
 section.intro {
   background: #2a2e31;
   color: #d4d5d6;
-  width: 25%;
+  width: 22%;
   height: 100%;
-  padding: 1.25em 0.625em;
+  padding: 1.25em;
   position: absolute;
   left: 0;
   top: 0; }
@@ -483,9 +585,9 @@ section.intro {
       top: 100px;
       background-position: center; }
     section.intro .avatar .eyes.animate:before, section.intro .avatar .eyes.animate:after {
-      animation: eye-blink, eye-blink, eye-blink, eye-blink, eye-blink, eye-blink;
-      animation-delay: 0s, 10s, 20s, 30s, 40s, 50s, 60s;
-      animation-duration: 100ms; }
+      animation: eye-blink, eye-move-to-name, eye-blink, eye-move-to-content, eye-blink, eye-blink, eye-blink, eye-blink, eye-blink, eye-blink;
+      animation-delay: 4s, 8s, 16s, 20s, 24s, 45s, 50s, 60s, 70s, 80s;
+      animation-duration: 400ms, 2s, 400ms, 2s, 400ms, 400ms, 400ms, 400ms, 400ms, 400ms; }
     section.intro .avatar .eyes:before, section.intro .avatar .eyes:after {
       position: absolute;
       top: 12px;
@@ -493,9 +595,10 @@ section.intro {
       border-radius: 100%;
       width: 25px;
       height: 25px;
-      background-color: #959798; }
+      background-color: #959798;
+      transition: 300ms transform; }
     section.intro .avatar .eyes:before {
-      left: 40px; }
+      left: 42px; }
     section.intro .avatar .eyes:after {
       right: 40px; }
   section.intro .contact ul {
@@ -507,21 +610,54 @@ section.intro {
     color: inherit; }
     section.intro .contact a:hover {
       color: white; }
+  section.intro .contact li:hover i {
+    color: #ffcb08; }
   section.intro .contact i {
     display: inline-block;
-    width: 20px; }
+    width: 1.25em;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.3125em;
+    margin-bottom: 0.5em;
+    margin-right: 0.1875em;
+    transition: 300ms color; }
   section.intro .languages p {
     margin-bottom: 0.8125em; }
     section.intro .languages p small {
       display: block;
-      line-height: 1; }
+      line-height: 1;
+      text-indent: 0.3125em; }
+  section.intro .designedby {
+    font-size: 12px;
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    color: white;
+    width: 90%;
+    text-decoration: none; }
+    section.intro .designedby i.icon-heart-filled {
+      color: #E90606;
+      float: left;
+      font-size: 9px;
+      margin-top: 4px; }
+    section.intro .designedby:hover span {
+      width: 76px;
+      opacity: 1; }
+    section.intro .designedby span {
+      transition: 300ms all;
+      width: 0;
+      margin: 0 3px;
+      float: left;
+      display: inline-block;
+      white-space: nowrap;
+      opacity: 0; }
 
 section.content {
   color: #2a2e31;
-  width: 75%;
-  padding: 1.875em 1.5625em;
+  width: 78%;
+  padding: 1.875em 1.25em;
   position: relative;
-  left: 25%; }
+  left: 22%; }
   section.content header {
     margin-bottom: 1.875em; }
     section.content header h1, section.content header h2 {
@@ -543,15 +679,19 @@ section.content {
     position: relative;
     margin-bottom: 1.25em; }
     section.content .main-block-title i {
-      width: 2.5em;
-      height: 2.5em;
+      width: 2.1875em;
+      height: 2.1875em;
       border: 0.125em solid;
       border-radius: 100%;
       display: block;
-      top: 0;
+      top: -0.4375em;
       left: 0;
       position: absolute;
-      background: #fff; }
+      background: #fff;
+      line-height: 2.0625em;
+      vertical-align: middle;
+      font-size: 1.375em;
+      text-align: center; }
     section.content .main-block-title p {
       margin-left: 2.8125em;
       border-bottom: 1px solid #999b9e;
@@ -559,14 +699,16 @@ section.content {
       font-weight: 400;
       font-size: 1.25em; }
   section.content .block-title {
-    margin-bottom: 0; }
+    margin-bottom: 0.625em; }
     section.content .block-title .lead {
       float: left;
       font-weight: 400;
-      color: inherit; }
+      color: inherit;
+      font-size: inherit; }
     section.content .block-title span {
       float: right;
-      color: #7f8283; }
+      color: #7f8283;
+      font-size: 0.875em; }
     section.content .block-title + p {
       white-space: pre-line;
       color: #55585a;
@@ -577,21 +719,17 @@ section.content {
   section.content .skill-tree span {
     display: block;
     float: left;
-    padding: 0.3125em 0.9375em 0.3125em 0.625em;
+    padding: 0.3125em 0.375em 0.3125em 0.9375em;
     background: #2a2e31;
     color: white;
     position: relative;
     margin-bottom: 0.25em; }
-    section.content .skill-tree span:after, section.content .skill-tree span:before {
-      content: "";
-      position: absolute;
-      right: -3px;
-      width: 9px;
-      height: 21px;
-      background: white; }
     section.content .skill-tree span:after {
-      top: -2px;
-      transform: rotateZ(-20deg); }
-    section.content .skill-tree span:before {
-      bottom: -2px;
-      transform: rotateZ(20deg); }
+      position: absolute;
+      bottom: 0;
+      content: "\e911";
+      font-family: "tareqhassan";
+      font-size: 32px;
+      line-height: 1;
+      right: -10px;
+      z-index: 2; }

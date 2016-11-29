@@ -1,11 +1,13 @@
-@import '_normalize';
-@import '_animations';
-
+@charset "UTF-8";
+$icomoon-font-path : '../font/fonts';
 $base-font-size: 16; // Default
-
 @function em($pixels, $context: $base-font-size) {
   @return #{$pixels/$context}em
 }
+
+@import '_normalize';
+@import '_animations';
+@import '../font/style.scss';
 
 *{
 	box-sizing:border-box;
@@ -28,9 +30,9 @@ body{
 section.intro{
 	background: #2a2e31;
 	color: #d4d5d6;
-	width: 25%;
+	width: 22%;
 	height: 100%;
-	padding: em(20) em(10);
+	padding: em(20);
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -72,9 +74,10 @@ section.intro{
 		}
 		.eyes{
 			&.animate:before,&.animate:after{
-				animation : eye-blink, eye-blink, eye-blink, eye-blink, eye-blink, eye-blink;
-			 	animation-delay: 0s, 10s, 20s, 30s, 40s, 50s, 60s;
-    			animation-duration: 100ms;
+				animation : eye-blink, eye-move-to-name, eye-blink, eye-move-to-content, eye-blink,
+							eye-blink, eye-blink, eye-blink, eye-blink, eye-blink; 
+			 	animation-delay: 4s, 8s, 16s, 20s, 24s, 45s, 50s, 60s, 70s, 80s;
+    			animation-duration: 400ms, 2s, 400ms, 2s, 400ms, 400ms, 400ms, 400ms, 400ms, 400ms;
 			}
 			&:before,&:after{
 				position: absolute;
@@ -84,8 +87,9 @@ section.intro{
 				width: 25px;
 				height: 25px;
 				background-color: #959798;
+				transition : 300ms transform;
 			}
-			&:before{left: 40px;}
+			&:before{left: 42px;}
 			&:after{right: 40px;}
 		}
 	}
@@ -104,9 +108,16 @@ section.intro{
 				color: white;
 			}
 		}
+		li:hover i{color:#ffcb08}
 		i{
 			display: inline-block;
-			width: 20px;
+			width: em(20);
+		    text-align: center;
+		    vertical-align: middle;
+		    font-size: em(21);
+		    margin-bottom: em(8);
+		    margin-right: em(3);
+		    transition : 300ms color;
 		}
 	}
 	.languages{
@@ -115,7 +126,36 @@ section.intro{
 			small{
 				display: block;
 				line-height: 1;
+				text-indent: em(5);
 			}
+		}
+	}
+	.designedby {
+		font-size: 12px;
+	    position: absolute;
+	    bottom: 10px;
+	    left: 20px;
+	    color:white;
+	    width: 90%;
+	    text-decoration: none;
+		i.icon-heart-filled{
+			color:#E90606;
+			float: left;
+		    font-size: 9px;
+			margin-top: 4px;
+		}
+		&:hover span{
+			width: 76px;
+    		opacity: 1;
+		}
+		span{
+			transition : 300ms all;
+			width: 0;
+			margin: 0 3px;
+			float: left;
+			display: inline-block;
+		    white-space: nowrap;
+    		opacity: 0;
 		}
 	}
 }
@@ -123,10 +163,10 @@ section.intro{
 
 section.content{
 	color: #2a2e31;
-	width: 75%;
-	padding: em(30) em(25);
+	width: 78%;
+	padding: em(30) em(20);
 	position: relative;
-	left: 25%;
+	left: 22%;
 	header{
 		margin-bottom: em(30);
 		h1,h2{
@@ -154,15 +194,19 @@ section.content{
 		position: relative;
 		margin-bottom: em(20);
 		i{
-		    width: em(40);
-		    height: em(40);
+		    width: em(35);
+		    height: em(35);
 		    border: em(2) solid;
 		    border-radius: 100%;
 		    display: block;
-		    top: 0;
+		    top: em(-7);
 		    left: 0;
 		    position: absolute;
 		    background: #fff;
+		    line-height: em(33);
+		    vertical-align: middle;
+		    font-size: em(22);
+		    text-align: center;
 		}
 		p{
 			margin-left: em(45);
@@ -173,15 +217,17 @@ section.content{
 		}
 	}
 	.block-title{
-		margin-bottom: 0;
+		margin-bottom: em(10);
 		.lead{
 			float: left;
 			font-weight: 400;
 			color:inherit;
+			font-size: inherit;
 		}
 		span{
 			float: right;
 			color: #7f8283;
+			font-size: em(14	);
 		}
 		+p{
 			white-space: pre-line;
@@ -196,26 +242,20 @@ section.content{
 	.skill-tree span{
 		display: block;
 		float: left;
-		padding: em(5) em(15) em(5) em(10);
+		padding: em(5) em(6) em(5) em(15);
 		background: #2a2e31;
 		color:white;
 	    position: relative;
 	    margin-bottom: em(4);
-	    &:after,&:before{
-        	content: "";
-		    position: absolute;
-		    right: -3px;
-		    width: 9px;
-		    height: 21px;
-		    background: white;
-	    }
 		&:after{
-			top: -2px;
-			transform: rotateZ(-20deg);
-		}
-		&:before{
-	        bottom: -2px;
-    		transform: rotateZ(20deg);
+		    position: absolute;
+		    bottom: 0;
+		    content: "\e911";
+		    font-family: "tareqhassan";
+		    font-size: 32px;
+		    line-height: 1;
+		    right: -10px;
+		    z-index: 2;
 		}
 	}
 }
