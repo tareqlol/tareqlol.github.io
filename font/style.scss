@@ -1,0 +1,118 @@
+@import "variables";
+
+@font-face {
+  font-family: 'tareqhassan';
+  src:
+    url('#{$icomoon-font-path}/tareqhassan.ttf?akgr3a') format('truetype'),
+    url('#{$icomoon-font-path}/tareqhassan.woff?akgr3a') format('woff'),
+    url('#{$icomoon-font-path}/tareqhassan.svg?akgr3a#tareqhassan') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'tareqhassan' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-gamepad {
+  &:before {
+    content: $icon-gamepad;
+  }
+}
+.icon-music {
+  &:before {
+    content: $icon-music;
+  }
+}
+.icon-travel {
+  &:before {
+    content: $icon-travel;
+  }
+}
+.icon-swimming {
+  &:before {
+    content: $icon-swimming;
+  }
+}
+.icon-cooking {
+  &:before {
+    content: $icon-cooking;
+  }
+}
+.icon-heart {
+  &:before {
+    content: $icon-heart;
+  }
+}
+.icon-location {
+  &:before {
+    content: $icon-location;
+  }
+}
+.icon-linkedin {
+  &:before {
+    content: $icon-linkedin;
+  }
+}
+.icon-skype {
+  &:before {
+    content: $icon-skype;
+  }
+}
+.icon-mobile {
+  &:before {
+    content: $icon-mobile;
+  }
+}
+.icon-email {
+  &:before {
+    content: $icon-email;
+  }
+}
+.icon-skills {
+  &:before {
+    content: $icon-skills;
+  }
+}
+.icon-certifications {
+  &:before {
+    content: $icon-certifications;
+  }
+}
+.icon-education {
+  &:before {
+    content: $icon-education;
+  }
+}
+.icon-experience {
+  &:before {
+    content: $icon-experience;
+  }
+}
+.icon-heart-filled {
+  &:before {
+    content: $icon-heart-filled;
+  }
+}
+.icon-pdf {
+  &:before {
+    content: $icon-pdf;
+  }
+}
+.icon-seperator {
+  &:before {
+    content: $icon-seperator;
+  }
+}
+
