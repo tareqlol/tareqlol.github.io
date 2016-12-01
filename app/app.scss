@@ -2,7 +2,7 @@
 $icomoon-font-path : '../font/fonts';
 $base-font-size: 16; // Default
 @function em($pixels, $context: $base-font-size) {
-  @return #{$pixels/$context}em
+  @return #{$pixels/$context}em;
 }
 
 @import '_normalize';
@@ -88,6 +88,8 @@ section.intro{
 				height: 25px;
 				background-color: #959798;
 				transition : 300ms transform;
+				will-change:transform;
+
 			}
 			&:before{left: 42px;}
 			&:after{right: 40px;}
@@ -133,7 +135,7 @@ section.intro{
 	.designedby {
 		font-size: 12px;
 	    position: absolute;
-	    bottom: 10px;
+	    bottom: 0;
 	    left: 20px;
 	    color:white;
 	    width: 90%;
@@ -142,11 +144,21 @@ section.intro{
 			color:#E90606;
 			float: left;
 		    font-size: 9px;
-			margin-top: 4px;
+			margin-top: 3px;
+			will-change:transform;
 		}
-		&:hover span{
-			width: 76px;
-    		opacity: 1;
+		&:hover 
+		{
+			span{
+				width: 76px;
+	    		opacity: 1;
+			}
+			i{
+			    margin-right: 2px;
+    			margin-left: 2px;
+				animation: beating-heart 700ms ease-out;
+    			animation-iteration-count: infinite;	
+			}
 		}
 		span{
 			transition : 300ms all;
@@ -185,6 +197,11 @@ section.content{
 		b{
 			font-weight: 800;
 		}
+	}
+	.pdf{
+		font-size: 18px;
+		color: #2a2e31;
+		text-decoration: none;
 	}
 	.block{
 		margin-bottom: em(25);
@@ -227,7 +244,7 @@ section.content{
 		span{
 			float: right;
 			color: #7f8283;
-			font-size: em(14	);
+			font-size: em(14);
 		}
 		+p{
 			white-space: pre-line;

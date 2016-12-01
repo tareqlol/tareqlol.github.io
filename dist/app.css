@@ -453,6 +453,20 @@ template {
   100% {
     transform: none; } }
 
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes beating-heart {
+  0% {
+    transform: scale(1); }
+  100% {
+    transform: scale(1.3); } }
+
+/* Standard syntax */
+@keyframes beating-heart {
+  0% {
+    transform: scale(1); }
+  100% {
+    transform: scale(1.3); } }
+
 @font-face {
   font-family: 'tareqhassan';
   src: url("../font/fonts/tareqhassan.ttf?akgr3a") format("truetype"), url("../font/fonts/tareqhassan.woff?akgr3a") format("woff"), url("../font/fonts/tareqhassan.svg?akgr3a#tareqhassan") format("svg");
@@ -596,7 +610,8 @@ section.intro {
       width: 25px;
       height: 25px;
       background-color: #959798;
-      transition: 300ms transform; }
+      transition: 300ms transform;
+      will-change: transform; }
     section.intro .avatar .eyes:before {
       left: 42px; }
     section.intro .avatar .eyes:after {
@@ -630,7 +645,7 @@ section.intro {
   section.intro .designedby {
     font-size: 12px;
     position: absolute;
-    bottom: 10px;
+    bottom: 0;
     left: 20px;
     color: white;
     width: 90%;
@@ -639,10 +654,16 @@ section.intro {
       color: #E90606;
       float: left;
       font-size: 9px;
-      margin-top: 4px; }
+      margin-top: 3px;
+      will-change: transform; }
     section.intro .designedby:hover span {
       width: 76px;
       opacity: 1; }
+    section.intro .designedby:hover i {
+      margin-right: 2px;
+      margin-left: 2px;
+      animation: beating-heart 700ms ease-out;
+      animation-iteration-count: infinite; }
     section.intro .designedby span {
       transition: 300ms all;
       width: 0;
@@ -672,6 +693,10 @@ section.content {
       text-indent: 0.1875em; }
     section.content header b {
       font-weight: 800; }
+  section.content .pdf {
+    font-size: 18px;
+    color: #2a2e31;
+    text-decoration: none; }
   section.content .block {
     margin-bottom: 1.5625em;
     clear: both; }
