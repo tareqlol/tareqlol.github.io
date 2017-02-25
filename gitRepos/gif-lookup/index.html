@@ -28,7 +28,7 @@
 					<button ng-click="search(true)">Random</button>
 				</section>
 			</header>
-			<h4 class="note" ng-if="searchKeyword">Results for {{searchKeyword}}</h4>
+			<h4 class="note ng-cloak" ng-if="searchKeyword">Results for {{searchKeyword}}</h4>
 			<section ng-class="{'loading': showLoading}">
 				<list data="giphyCarouselList"></list>
 			</section>
