@@ -734,7 +734,7 @@ section.content {
       float: right;
       color: #7f8283;
       font-size: 0.875em; }
-    section.content .block-title + p {
+    section.content p {
       white-space: pre-line;
       color: #55585a;
       padding-left: 0.625em;
